@@ -1,0 +1,39 @@
+{% extends 'hospital/home.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registered List</title>
+</head>
+<body>
+    <br><br>
+    <div class="container-fluid mt-3 bg-light rounded pt-3 pb-3">
+        <h2>User Registered List</h2>    
+        <hr>   
+        <table class="table table-hover table-bordered">
+          <thead class="table-info">
+            <tr>
+              <th>Name</th>
+              <th>email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in x %}
+            <tr>
+              <td>{{i.name}}</td>
+              <td>{{i.email}}</td>
+              <!-- <td><a class="btn btn-primary col-6" href="{% url 'update_dep' id=i.department_id %}">Rename</a></td>
+              <td><a onclick="return confirm('Are you sure you want to delete?');" class="btn btn-danger col-6" href="{% url 'delete_dep' id=i.department_id %}">Delete</a></td> -->
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}

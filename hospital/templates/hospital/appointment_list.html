@@ -1,0 +1,51 @@
+{% extends 'hospital/user.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment List</title>
+</head>
+<body>
+    <br><br>
+    <div class="container-fluid mt-3 bg-light rounded pt-3 pb-3">
+        <h2>Appointment List</h2>    
+        <hr>   
+        <table class="table table-hover table-bordered">
+          <thead class="table-info">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone No.</th>
+              <th>Place</th>
+              <th>Date</th>
+              <th>Time-slot</th>
+              <th>Department</th>
+              <th>Doctor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in x %}
+            <tr>
+              <td>{{i.name}}</td>
+              <th>{{i.email}}</th>
+              <th>{{i.phone}}</th>
+              <th>{{i.place}}</th>
+              <th>{{i.date}}</th>
+              <th>{{i.time}}</th>
+              <th>{{i.department}}</th>
+              <th>{{i.doctor}}</th>
+              <th></th>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}

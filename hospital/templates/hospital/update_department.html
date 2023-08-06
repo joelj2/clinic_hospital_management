@@ -1,0 +1,31 @@
+{% extends 'hospital/home.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Department</title>
+</head>
+<body>
+    <br><br>
+    <div class="container-fluid mt-3 bg-light rounded pt-3 pb-3">
+        <h1 class="text-center">Update Department</h1>
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mt-3">
+                <label class="fw-bold" for="name">Department:</label>
+                <input class="form-control mt-2" name="name" type="text" placeholder="Department name..." required style="width:40%;">
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-primary" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'hospital/home.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department List</title>
+</head>
+<body>
+    <br><br>
+    <div class="container-fluid mt-3 bg-light rounded pt-3 pb-3">
+        <h2>Department List</h2>    
+        <hr>   
+              <div class="container-fluid mt-5 rounded bg-light border pb-3">
+                <h1>Meet the Doctor's</h1>
+                <hr>
+                <div class="row rounded">
+                    {% for i in y %}
+                    <div class="col-2 me-4">
+                        <div class="card" style="width:15rem;">
+                            <img src="{{i.image.url}}" class="card-img-top" alt="..." height="250px">
+                            <div class="card-body">
+                              <h5 class="card-title">{{i.name}} - {{i.qualification}}</h5>
+                              <p class="card-text">{{i.department}}</p>
+                              <!-- <a href="{% url 'update_doc' id=i.doctor_id %}" class="btn btn-primary d-grid disabled">Update</a> -->
+                            </div>  
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}

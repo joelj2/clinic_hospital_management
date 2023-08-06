@@ -1,0 +1,55 @@
+{% extends 'hospital/admin.html' %}
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment List</title>
+</head>
+<body>
+    <br><br>
+    <div class="container-fluid mt-3 bg-light rounded pt-3 pb-3">
+        <h2>Appointment List</h2>    
+        <hr>   
+        <table class="table table-hover table-bordered">
+          <thead class="table-info">
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone No.</th>
+              <th>Place</th>
+              <th>Date</th>
+              <th>Time-slot</th>
+              <th>Department</th>
+              <th>Doctor</th>
+              <th>status</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in s %}
+            <tr>
+              <td>{{i.name}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.phone}}</td>
+              <td>{{i.place}}</td>
+              <td>{{i.date}}</td>
+              <td>{{i.time}}</td>
+              <td>{{i.department}}</td>
+              <td>{{i.doctor}}</td>
+              <td>{{i.status}}</td>
+              <td><a class="btn btn-success" href="{% url 'appointment_approve' id=i.appointment_id %}">Accept</a></td>
+              <td><a class="btn btn-danger" href="{% url 'appointment_reject' id=i.appointment_id %}">Reject</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}
